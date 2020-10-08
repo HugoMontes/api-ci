@@ -55,7 +55,6 @@ class Empleado extends ResourceController
   public function update($id = null)
   {
     $model = new EmpleadoModel();
-    $id = $this->request->getVar('id');
     $data = [
       'nombre' => $this->request->getVar('nombre'),
       'email'  => $this->request->getVar('email'),
