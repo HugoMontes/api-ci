@@ -16,7 +16,8 @@ class Cliente extends ResourceController
   public function index()
   {
     $model = new ClienteModel();
-    $data['clientes'] = $model->orderBy('id', 'DESC')->findAll();
+    $data = $model->orderBy('id', 'DESC')->findAll();
+    $this->configHeader();
     return $this->respond($data);
   }
 
@@ -36,6 +37,7 @@ class Cliente extends ResourceController
         'success' => 'Cliente creado correctamente'
       ]
     ];
+    $this->configHeader();
     return $this->respondCreated($response);
   }
 
@@ -88,5 +90,11 @@ class Cliente extends ResourceController
     } else {
       return $this->failNotFound('No se encuentra el cliente');
     }
+  }
+
+  private function configHeader() {
+    $this->response->setHeader('Access-Control-Allow-Origin', '*')
+      ->setHeader('Access-Control-Allow-Headers', '*')
+      ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   }
 }
