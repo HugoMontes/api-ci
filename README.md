@@ -7,35 +7,35 @@ Para mas informacion visitar la [Pagina de referencia](https://www.positronx.io/
 
 ## Modo de uso
 
-### Listar empleados
+### Listar clientes
 | OPCIONES | VALORES                                                                                  |
 |----------|------------------------------------------------------------------------------------------|
 | METHOD   | GET                                                                                      |
-| URL      | http://localhost/empleado                                                                |
+| URL      | http://localhost/cliente                                                                |
 
-### Guardar un empleado
+### Guardar un cliente
 | OPCIONES | VALORES                                                                                  |
 |----------|------------------------------------------------------------------------------------------|
 | METHOD   | POST                                                                                     |
-| URL      | http://localhost/empleado                                                                |
+| URL      | http://localhost/cliente                                                                |
 | BODY     | x-www-form-urlencoded <br/> nombre: juan <br/> email: juan@gmail.com                     |
 
-### Obtener un empleado
+### Obtener un cliente
 | OPCIONES | VALORES                                                                                  |
 |----------|------------------------------------------------------------------------------------------|
 | METHOD   | GET                                                                                      |
-| URL      | http://localhost/empleado/4                                                              |
+| URL      | http://localhost/cliente/4                                                              |
 
-### Editar un empleado
+### Editar un cliente
 | OPCIONES | VALORES                                                                                  |
 |----------|------------------------------------------------------------------------------------------|
 | METHOD   | POST                                                                                     |
-| URL      | http://localhost/empleado/update/8                                                       |
+| URL      | http://localhost/cliente/update/8                                                       |
 | BODY     | x-www-form-urlencoded <br/> nombre: juana <br/> email: juana@gmail.com                   |
 
-### Eliminar un empleado
+### Eliminar un cliente
 | OPCIONES | VALORES                                                                                  |
 |----------|------------------------------------------------------------------------------------------|
 | METHOD   | POST                                                                                     |
-| URL      | http://localhost/empleado/8                                                              |
+| URL      | http://localhost/cliente/8                                                              |
 

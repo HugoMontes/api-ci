@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\EmpleadoModel;
+use App\Models\ClienteModel;
 
 
-class Empleado extends ResourceController
+class Cliente extends ResourceController
 {
 
   use ResponseTrait;
@@ -15,15 +15,15 @@ class Empleado extends ResourceController
   // all users
   public function index()
   {
-    $model = new EmpleadoModel();
-    $data['empleados'] = $model->orderBy('id', 'DESC')->findAll();
+    $model = new ClienteModel();
+    $data['clientes'] = $model->orderBy('id', 'DESC')->findAll();
     return $this->respond($data);
   }
 
   // create
   public function create()
   {
-    $model = new EmpleadoModel();
+    $model = new ClienteModel();
     $data = [
       'nombre' => $this->request->getVar('nombre'),
       'email'  => $this->request->getVar('email'),
@@ -33,7 +33,7 @@ class Empleado extends ResourceController
       'status'   => 201,
       'error'    => null,
       'messages' => [
-        'success' => 'Empleado creado correctamente'
+        'success' => 'Cliente creado correctamente'
       ]
     ];
     return $this->respondCreated($response);
@@ -42,19 +42,19 @@ class Empleado extends ResourceController
   // single user
   public function show($id = null)
   {
-    $model = new EmpleadoModel();
+    $model = new ClienteModel();
     $data = $model->where('id', $id)->first();
     if ($data) {
       return $this->respond($data);
     } else {
-      return $this->failNotFound('No se encuentra el empleado');
+      return $this->failNotFound('No se encuentra el cliente');
     }
   }
 
   // update
   public function update($id = null)
   {
-    $model = new EmpleadoModel();
+    $model = new ClienteModel();
     $data = [
       'nombre' => $this->request->getVar('nombre'),
       'email'  => $this->request->getVar('email'),
@@ -64,7 +64,7 @@ class Empleado extends ResourceController
       'status'   => 200,
       'error'    => null,
       'messages' => [
-        'success' => 'Empleado editado correctamente'
+        'success' => 'Cliente editado correctamente'
       ]
     ];
     return $this->respond($response);
@@ -73,7 +73,7 @@ class Empleado extends ResourceController
   // delete
   public function delete($id = null)
   {
-    $model = new EmpleadoModel();
+    $model = new ClienteModel();
     $data = $model->where('id', $id)->delete($id);
     if ($data) {
       $model->delete($id);
@@ -81,12 +81,12 @@ class Empleado extends ResourceController
         'status'   => 200,
         'error'    => null,
         'messages' => [
-          'success' => 'Empleado eliminado correctamente'
+          'success' => 'Cliente eliminado correctamente'
         ]
       ];
       return $this->respondDeleted($response);
     } else {
-      return $this->failNotFound('No se encuentra el empleado');
+      return $this->failNotFound('No se encuentra el cliente');
     }
   }
 }

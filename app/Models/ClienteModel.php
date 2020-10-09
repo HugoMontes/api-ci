@@ -2,9 +2,9 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-class EmpleadoModel extends Model
+class ClienteModel extends Model
 {
-    protected $table = 'empleados';
+    protected $table = 'clientes';
     protected $primaryKey = 'id';
     protected $allowedFields = ['nombre', 'email'];
 }
